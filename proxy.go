@@ -55,5 +55,6 @@ type W struct {
 func (w W) Write(p []byte) (n int, err error) {
 	n, err = w.Writer.Write(p)
 	fmt.Printf("%s: %q\n", w.name, p[:n])
+	fmt.Printf("	%v\n", p[:n])
 	return n, err
 }
