@@ -37,12 +37,14 @@ func handleConnection(conn net.Conn) {
 		log.Print(err)
 		return
 	}
+	dstName := dst.RemoteAddr()
+	srcName := conn.RemoteAddr()
 	go func() {
-		io.Copy(W{dst, "DEST"}, conn)
+		io.Copy(W{dst, fmt.Sprintf("%s -> %s", srcName, dstName)}, conn)
 		dst.Close()
 	}()
 	go func() {
-		io.Copy(W{conn, "SRC"}, dst)
+		io.Copy(W{conn, fmt.Sprintf("%s -> %s", dstName, srcName)}, dst)
 		conn.Close()
 	}()
 }
