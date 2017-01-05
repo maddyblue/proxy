@@ -19,7 +19,7 @@ func main() {
 	log.Println("relay to", *destination)
 	ln, err := net.Listen("tcp", *listen)
 	if err != nil {
-		// handle error
+		panic(err)
 	}
 	for {
 		conn, err := ln.Accept()
