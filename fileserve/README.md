@@ -5,6 +5,10 @@ Useful for CockroachDB IMPORT/BACKUP/RESTORE testing with local `http` storage.
 No security measures are taken whatsoever.
 Only for use in local testing.
 
+# installation
+
+`go get -u github.com/mjibson/proxy/fileserve`
+
 # options
 
 - `-addr` serve address, defaults to `:1123`
