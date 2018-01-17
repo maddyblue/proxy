@@ -7,5 +7,5 @@ Only for use in local testing.
 
 # options
 
-`-addr` serve address, defaults to `:1123`
-`-base` file directory, defaults to `.`
+- `-addr` serve address, defaults to `:1123`
+- `-base` file directory, defaults to `.`
