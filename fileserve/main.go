@@ -28,6 +28,10 @@ func main() {
 		log.Printf("% 7s %s (%s)", r.Method, r.URL.Path, localfile)
 		switch r.Method {
 		case "PUT":
+			if err := os.MkdirAll(filepath.Dir(localfile), 0755); err != nil {
+				sendErr(w, r, err.Error(), 500)
+				return
+			}
 			f, err := os.Create(localfile)
 			if err != nil {
 				sendErr(w, r, err.Error(), 500)
